@@ -51,5 +51,13 @@
   },
   "permissions": [
     "storage"
-  ]
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "just-let-me-watch-my-youtube@furrofurry.github.io",
+      "data_collection_permissions": {
+        "required": false
+      }
+    }
+  }
 }
