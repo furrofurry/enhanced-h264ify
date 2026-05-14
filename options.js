@@ -9,6 +9,7 @@ function save_options() {
   var block_mp4a = document.getElementById('block_mp4a').checked;
   // LN stands for Loudness Normalization
   var disable_LN = document.getElementById('disable_LN').checked;
+  var block_distractions = document.getElementById('block_distractions').checked;
   chrome.storage.local.set({
     block_60fps: block_60fps,
     block_h264: block_h264,
@@ -17,13 +18,21 @@ function save_options() {
     block_av1: block_av1,
     block_opus: block_opus,
     block_mp4a: block_mp4a,
-    disable_LN: disable_LN
+    disable_LN: disable_LN,
+    block_distractions: block_distractions
   });
+  update_mode_indicator(block_distractions);
+}
+
+function update_mode_indicator(enabled) {
+  var indicator = document.getElementById('mode_indicator');
+  indicator.textContent = enabled
+    ? '😌 ' + chrome.i18n.getMessage('optionsRelaxModeOn')
+    : '😴 ' + chrome.i18n.getMessage('optionsRelaxModeOff');
 }
 
 // Restores checkbox state using the options stored in chrome.storage.
 function restore_options() {
-  // Default values
   chrome.storage.local.get({
     block_60fps: false,
     block_h264: false,
@@ -32,7 +41,8 @@ function restore_options() {
     block_av1: true,
     block_opus: false,
     block_mp4a: false,
-    disable_LN: false
+    disable_LN: true,
+    block_distractions: false
   }, function(options) {
     document.getElementById('block_60fps').checked = options.block_60fps;
     document.getElementById('block_h264').checked = options.block_h264;
@@ -42,19 +52,23 @@ function restore_options() {
     document.getElementById('block_opus').checked = options.block_opus;
     document.getElementById('block_mp4a').checked = options.block_mp4a;
     document.getElementById('disable_LN').checked = options.disable_LN;
+    document.getElementById('block_distractions').checked = options.block_distractions;
+    update_mode_indicator(options.block_distractions);
   });
 }
 
-// Restore saved options when extension is loaded
 document.addEventListener('DOMContentLoaded', restore_options);
 
-// Save options when checkboxes are clicked
 var checkboxes = document.getElementsByClassName('checkbox');
 for (var i = 0; i < checkboxes.length; i++) {
-  checkboxes[i].addEventListener('click', save_options)
+  checkboxes[i].addEventListener('click', save_options);
 }
 
-// l10n
-for (let element of document.querySelectorAll('[data-l10n-id]')) {
+for (let element of document.querySelectorAll("[data-l10n-id]")) {
   element.textContent = chrome.i18n.getMessage(element.dataset.l10nId);
+}
+
+for (let el of document.querySelectorAll('.info-dot[data-l10n-id]')) {
+  el.title = chrome.i18n.getMessage(el.dataset.l10nId);
+  el.textContent = "i";
 }

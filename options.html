@@ -1,72 +1,131 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <title data-l10n-id="optionsTitle"></title>
-      <style>
-        @media (prefers-color-scheme: light) {
-          body {
-            color: black;
-            background: white;
-          }
-          p {
-            background: #efefef;
-          }
-        }
-        @media (prefers-color-scheme: dark) {
-          body {
-            color: white;
-            background-color: #202020;
-          }
-          p {
-            background: #3a3a3a;
-          }
-        }
-        body {
-          white-space: nowrap;
-          margin: 0px;
-        }
-        ul {
-          list-style: none;
-          margin-top: 5px;
-          margin-bottom: 5px;
-          padding-left: 5px;
-          padding-right: 8px;
-        }
-        li {
-          padding-top: 2px;
-          padding-bottom: 2px;
-        }
-        input.checkbox {
-          margin-right: 5px;
-          vertical-align: middle;
-        }
-        label {
-          vertical-align: middle;
-        }
-        p {
-          text-align: center;
-          font-weight: bold;
-          font-size: 1.3em;
-          padding: 0px;
-          margin: 0px;
-        }
-      </style>
-   </head>
-   <body>
-      <p data-l10n-id="optionsTitleVideo"></p>
-      <ul>
-         <li><input type="checkbox" id="block_60fps" class="checkbox"><label for="block_60fps" data-l10n-id="optionsBlock60fps"></label></li>
-         <li><input type="checkbox" id="block_h264" class="checkbox"><label for="block_h264" data-l10n-id="optionsBlockH264"></label></li>
-         <li><input type="checkbox" id="block_vp8" class="checkbox"><label for="block_vp8" data-l10n-id="optionsBlockVP8"></label></li>
-         <li><input type="checkbox" id="block_vp9" class="checkbox"><label for="block_vp9" data-l10n-id="optionsBlockVP9"></label></li>
-         <li><input type="checkbox" id="block_av1" class="checkbox"><label for="block_av1" data-l10n-id="optionsBlockAV1"></label></li>
-      </ul>
-      <p data-l10n-id="optionsTitleAudio"></p>
-      <ul>
-         <li><input type="checkbox" id="block_opus" class="checkbox"><label for="block_opus" data-l10n-id="optionsBlockOpus"></label></li>
-         <li><input type="checkbox" id="block_mp4a" class="checkbox"><label for="block_mp4a" data-l10n-id="optionsBlockMP4A"></label></li>
-         <li><input type="checkbox" id="disable_LN" class="checkbox"><label for="disable_LN" data-l10n-id="optionsDisableLN"></label></li>
-      </ul>
-      <script src="options.js"></script>
-   </body>
+  <head>
+    <meta charset="UTF-8">
+    <title data-l10n-id="optionsTitle"></title>
+    <style>
+      :root {
+        --swiss-orange: #ff6f00;
+        --swiss-orange-soft: #fff1e4;
+        --swiss-white: #ffffff;
+        --swiss-text: #271100;
+        --swiss-border: #ffb26b;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-width: 380px;
+        font-family: Inter, Arial, sans-serif;
+        color: var(--swiss-text);
+        background: var(--swiss-white);
+      }
+      .shell {
+        padding: 12px;
+        border-top: 6px solid var(--swiss-orange);
+      }
+      .hero {
+        background: var(--swiss-orange);
+        color: var(--swiss-white);
+        padding: 12px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+      h1 {
+        margin: 0;
+        font-size: 1.05rem;
+      }
+      .subtitle {
+        margin: 6px 0 0;
+        font-size: 0.85rem;
+      }
+      .mode-indicator {
+        margin: 8px 0 0;
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+      .section {
+        border: 1px solid var(--swiss-border);
+        border-radius: 10px;
+        margin-bottom: 10px;
+        background: var(--swiss-orange-soft);
+      }
+      h2 {
+        margin: 0;
+        background: var(--swiss-white);
+        color: var(--swiss-orange);
+        border-bottom: 1px solid var(--swiss-border);
+        padding: 8px 10px;
+        font-size: 0.85rem;
+        letter-spacing: .05em;
+        text-transform: uppercase;
+      }
+      ul { list-style: none; margin: 0; padding: 6px 8px; }
+      li { margin: 6px 0; }
+      .setting-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      input.checkbox {
+        inline-size: 17px;
+        block-size: 17px;
+        margin-top: 3px;
+        accent-color: var(--swiss-orange);
+      }
+      .setting-main { flex: 1; }
+      label { font-size: .92rem; font-weight: 600; }
+      .setting-help { font-size: .78rem; margin-top: 2px; }
+      .info-dot {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        font-size: 12px;
+        font-weight: 700;
+        background: var(--swiss-orange);
+        color: white;
+        cursor: help;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <section class="hero">
+        <h1>🇨🇭 <span data-l10n-id="optionsTitle"></span></h1>
+        <p class="subtitle" data-l10n-id="optionsSubtitle"></p>
+        <p class="mode-indicator" id="mode_indicator">😴 Relax mode is off</p>
+      </section>
+
+      <section class="section">
+        <h2 data-l10n-id="optionsTitleVideo"></h2>
+        <ul>
+          <li class="setting-row"><input type="checkbox" id="block_60fps" class="checkbox"><div class="setting-main"><label for="block_60fps" data-l10n-id="optionsBlock60fps"></label><div class="setting-help" data-l10n-id="helpBlock60fps"></div></div><span class="info-dot" data-l10n-id="helpBlock60fps" title=""></span></li>
+          <li class="setting-row"><input type="checkbox" id="block_h264" class="checkbox"><div class="setting-main"><label for="block_h264" data-l10n-id="optionsBlockH264"></label><div class="setting-help" data-l10n-id="helpBlockH264"></div></div><span class="info-dot" data-l10n-id="helpBlockH264" title=""></span></li>
+          <li class="setting-row"><input type="checkbox" id="block_vp8" class="checkbox"><div class="setting-main"><label for="block_vp8" data-l10n-id="optionsBlockVP8"></label><div class="setting-help" data-l10n-id="helpBlockVP8"></div></div><span class="info-dot" data-l10n-id="helpBlockVP8" title=""></span></li>
+          <li class="setting-row"><input type="checkbox" id="block_vp9" class="checkbox"><div class="setting-main"><label for="block_vp9" data-l10n-id="optionsBlockVP9"></label><div class="setting-help" data-l10n-id="helpBlockVP9"></div></div><span class="info-dot" data-l10n-id="helpBlockVP9" title=""></span></li>
+          <li class="setting-row"><input type="checkbox" id="block_av1" class="checkbox"><div class="setting-main"><label for="block_av1" data-l10n-id="optionsBlockAV1"></label><div class="setting-help" data-l10n-id="helpBlockAV1"></div></div><span class="info-dot" data-l10n-id="helpBlockAV1" title=""></span></li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2 data-l10n-id="optionsTitleAudio"></h2>
+        <ul>
+          <li class="setting-row"><input type="checkbox" id="block_opus" class="checkbox"><div class="setting-main"><label for="block_opus" data-l10n-id="optionsBlockOpus"></label><div class="setting-help" data-l10n-id="helpBlockOpus"></div></div><span class="info-dot" data-l10n-id="helpBlockOpus" title=""></span></li>
+          <li class="setting-row"><input type="checkbox" id="block_mp4a" class="checkbox"><div class="setting-main"><label for="block_mp4a" data-l10n-id="optionsBlockMP4A"></label><div class="setting-help" data-l10n-id="helpBlockMP4A"></div></div><span class="info-dot" data-l10n-id="helpBlockMP4A" title=""></span></li>
+          <li class="setting-row"><input type="checkbox" id="disable_LN" class="checkbox"><div class="setting-main"><label for="disable_LN" data-l10n-id="optionsDisableLN"></label><div class="setting-help" data-l10n-id="helpDisableLN"></div></div><span class="info-dot" data-l10n-id="helpDisableLN" title=""></span></li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2 data-l10n-id="optionsTitleFocus"></h2>
+        <ul>
+          <li class="setting-row"><input type="checkbox" id="block_distractions" class="checkbox"><div class="setting-main"><label for="block_distractions" data-l10n-id="optionsBlockDistractions"></label><div class="setting-help" data-l10n-id="helpFocusMode"></div></div><span class="info-dot" data-l10n-id="helpFocusMode" title=""></span></li>
+        </ul>
+      </section>
+    </div>
+    <script src="options.js"></script>
+  </body>
 </html>

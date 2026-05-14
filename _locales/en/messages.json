@@ -3,48 +3,79 @@
     "message": "Choose what video and audio codecs YouTube should play for you",
     "description": "Extension description"
   },
-
   "optionsTitle": {
-    "message": "enhanced-h264ify"
+    "message": "Just let me watch my youtube"
   },
-
   "optionsBlock60fps": {
     "message": "Block 60fps video"
   },
-
   "optionsBlockH264": {
     "message": "Block h264 (AVC)"
   },
-
   "optionsBlockVP8": {
     "message": "Block VP8"
   },
-
   "optionsBlockVP9": {
     "message": "Block VP9"
   },
-
   "optionsBlockAV1": {
     "message": "Block AV1"
   },
-
   "optionsBlockOpus": {
     "message": "Block Opus"
   },
-
   "optionsBlockMP4A": {
     "message": "Block AAC (MP4A)"
   },
-
   "optionsDisableLN": {
-    "message": "Disable Loudness Normalization"
+    "message": "Disable Loudness Normalization (Recommended)"
   },
-
   "optionsTitleVideo": {
     "message": "Video"
   },
-
   "optionsTitleAudio": {
     "message": "Audio"
+  },
+  "optionsSubtitle": {
+    "message": "Relaxed playback controls for YouTube."
+  },
+  "optionsTitleFocus": {
+    "message": "Focus"
+  },
+  "optionsBlockDistractions": {
+    "message": "Hide recommendations and enter your focus mode"
+  },
+  "optionsRelaxModeOn": {
+    "message": "Relax mode is on"
+  },
+  "optionsRelaxModeOff": {
+    "message": "Relax mode is off"
+  },
+  "helpBlock60fps": {
+    "message": "Blocks 60fps streams to reduce CPU/GPU usage."
+  },
+  "helpBlockH264": {
+    "message": "Prevents H264 streams. Use only if you want other codecs."
+  },
+  "helpBlockVP8": {
+    "message": "Blocks VP8 streams from being selected by YouTube."
+  },
+  "helpBlockVP9": {
+    "message": "Blocks VP9 streams from being selected by YouTube."
+  },
+  "helpBlockAV1": {
+    "message": "Blocks AV1 streams from being selected by YouTube."
+  },
+  "helpBlockOpus": {
+    "message": "Blocks Opus audio streams."
+  },
+  "helpBlockMP4A": {
+    "message": "Blocks AAC/MP4A audio streams."
+  },
+  "helpDisableLN": {
+    "message": "Disables YouTube loudness normalization tweaks so audio plays as the creator intended."
+  },
+  "helpFocusMode": {
+    "message": "Hides recommendation areas and shows a calm focus prompt on Home."
   }
 }

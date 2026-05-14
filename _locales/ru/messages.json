@@ -3,49 +3,79 @@
     "message": "Выбирайте сами видео и аудио кодеки, которые YouTube будет вам показывать",
     "description": "Extension description"
   },
-
   "optionsTitle": {
-    "message": "enhanced-h264ify"
+    "message": "Just let me watch my youtube"
   },
-
   "optionsBlock60fps": {
     "message": "Блокировать 60к/с видео"
   },
-
   "optionsBlockH264": {
     "message": "Блокировать h264 (AVC)"
   },
-
   "optionsBlockVP8": {
     "message": "Блокировать VP8"
   },
-
   "optionsBlockVP9": {
     "message": "Блокировать VP9"
   },
-
   "optionsBlockAV1": {
     "message": "Блокировать AV1"
   },
-
   "optionsBlockOpus": {
     "message": "Блокировать Opus"
   },
-
   "optionsBlockMP4A": {
     "message": "Блокировать AAC (MP4A)"
   },
-
   "optionsDisableLN": {
-    "message": "Выключить нормализацию громкости"
+    "message": "Disable Loudness Normalization (Recommended)"
   },
-
   "optionsTitleVideo": {
     "message": "Видео"
   },
-
   "optionsTitleAudio": {
     "message": "Аудио"
+  },
+  "optionsSubtitle": {
+    "message": "Relaxed playback controls for YouTube."
+  },
+  "optionsTitleFocus": {
+    "message": "Focus"
+  },
+  "optionsBlockDistractions": {
+    "message": "Hide recommendations and enter your focus mode"
+  },
+  "optionsRelaxModeOn": {
+    "message": "Relax mode is on"
+  },
+  "optionsRelaxModeOff": {
+    "message": "Relax mode is off"
+  },
+  "helpBlock60fps": {
+    "message": "Blocks 60fps streams to reduce CPU/GPU usage."
+  },
+  "helpBlockH264": {
+    "message": "Prevents H264 streams. Use only if you want other codecs."
+  },
+  "helpBlockVP8": {
+    "message": "Blocks VP8 streams from being selected by YouTube."
+  },
+  "helpBlockVP9": {
+    "message": "Blocks VP9 streams from being selected by YouTube."
+  },
+  "helpBlockAV1": {
+    "message": "Blocks AV1 streams from being selected by YouTube."
+  },
+  "helpBlockOpus": {
+    "message": "Blocks Opus audio streams."
+  },
+  "helpBlockMP4A": {
+    "message": "Blocks AAC/MP4A audio streams."
+  },
+  "helpDisableLN": {
+    "message": "Disables YouTube loudness normalization tweaks so audio plays as the creator intended."
+  },
+  "helpFocusMode": {
+    "message": "Hides recommendation areas and shows a calm focus prompt on Home."
   }
-
 }
