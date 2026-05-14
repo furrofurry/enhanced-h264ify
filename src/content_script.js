@@ -62,6 +62,7 @@ function applyDistractionBlocking() {
     style.id = 'enhanced-h264ify-distraction-style';
     style.textContent = `
       #secondary,
+      #toast,
       .ytd-watch-next-secondary-results-renderer.style-scope > .ytd-item-section-renderer.style-scope {
         display: none !important;
       }

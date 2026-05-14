@@ -1,138 +1,304 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
    <head>
       <meta charset="UTF-8">
       <title data-l10n-id="optionsTitle"></title>
       <style>
         :root {
-          color-scheme: light dark;
-          --bg: #f3f9ff;
-          --text: #11223a;
-          --card: rgba(255, 255, 255, 0.8);
-          --border: rgba(17, 34, 58, 0.15);
-          --accent: #2d7ff9;
-          --muted: #55708f;
-        }
+          /* Swiss Theme Palette */
+          --swiss-orange: #FF4500; /* International Orange - High Energy */
+          --swiss-black: #000000;  /* Pure Black for Contrast */
+          --swiss-white: #FFFFFF;
+          --swiss-off-white: #FAFAFA;
+          --swiss-text-muted: #333333; /* Darker grey for better readability */
 
-        @media (prefers-color-scheme: dark) {
-          :root {
-            --bg: #0f1725;
-            --text: #ecf5ff;
-            --card: rgba(19, 31, 50, 0.88);
-            --border: rgba(236, 245, 255, 0.14);
-            --accent: #74b3ff;
-            --muted: #a8c1dd;
-          }
+          --spacing-unit: 24px; /* Increased breathing room */
+          --border-width: 3px;  /* Thicker, bolder borders */
         }
 
         * { box-sizing: border-box; }
+
         body {
           margin: 0;
           min-width: 360px;
-          font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-          color: var(--text);
-          background: radial-gradient(circle at 0 0, #cde5ff 0, transparent 45%),
-                      radial-gradient(circle at 100% 100%, #dafee8 0, transparent 50%),
-                      var(--bg);
+          font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Classic Swiss typography */
+          color: var(--swiss-black);
+          background-color: var(--swiss-white);
+          line-height: 1.4;
+          -webkit-font-smoothing: antialiased;
+          text-align: left; /* Enforce left alignment for Swiss style */
         }
-        .shell { padding: 14px; }
+
+        .shell {
+          padding: calc(var(--spacing-unit) * 2);
+          max-width: 900px;
+          margin: 0 auto;
+          border-left: 1px solid transparent; /* Optional: subtle grid alignment visual */
+        }
+
+        /* Hero Section: Bold and Grid-like */
         .hero {
-          border: 1px solid var(--border);
-          background: var(--card);
-          backdrop-filter: blur(4px);
-          border-radius: 14px;
-          padding: 12px;
-          margin-bottom: 12px;
+          border: var(--border-width) solid var(--swiss-black);
+          background-color: var(--swiss-white);
+          padding: calc(var(--spacing-unit) * 3);
+          margin-bottom: calc(var(--spacing-unit) * 3);
           position: relative;
+          /* Swiss asymmetry layout potential */
         }
+
         .brand-icon {
           position: absolute;
-          right: 10px;
-          top: 10px;
-          width: 28px;
-          height: 28px;
-          border-radius: 6px;
+          right: 0;
+          top: 0;
+          width: 80px;
+          height: 80px;
+          /* Stronger geometric border, no radius */
+          border: var(--border-width) solid var(--swiss-orange);
+          border-top: none;
+          border-right: none;
+          background: var(--swiss-orange);
+          object-fit: cover;
+          display: block; /* Remove inline-block gaps */
         }
+
         h1 {
-          font-size: 1.1rem;
-          margin: 0;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-        .subtitle {
-          margin: 6px 0 0;
-          color: var(--muted);
-          font-size: 0.85rem;
-        }
-        .mode-indicator {
-          margin: 6px 0 0;
-          font-size: 0.95rem;
-          font-weight: 700;
-          color: var(--accent);
-        }
-        .section {
-          border: 1px solid var(--border);
-          border-radius: 12px;
-          background: var(--card);
-          margin-bottom: 10px;
-          padding: 8px 10px;
-        }
-        h2 {
-          margin: 2px 0 6px;
-          font-size: 0.9rem;
-          color: var(--accent);
+          font-size: 4rem; /* Massive, impactful title */
+          margin: 0 0 var(--spacing-unit) 0;
           text-transform: uppercase;
-          letter-spacing: .04em;
+          font-weight: 900;
+          letter-spacing: -0.04em; /* Tight tracking */
+          line-height: 0.9;
+          color: var(--swiss-black);
         }
-        ul { list-style: none; margin: 0; padding: 0; }
+
+        .subtitle {
+          margin: 0;
+          font-size: 1.25rem;
+          font-weight: 500;
+          letter-spacing: -0.01em;
+          max-width: 80%;
+        }
+
+        .mode-indicator {
+          margin-top: var(--spacing-unit);
+          display: inline-block;
+          font-size: 1.5rem;
+          font-weight: 800;
+          color: var(--swiss-white);
+          text-transform: uppercase;
+          background-color: var(--swiss-orange);
+          padding: 8px 24px;
+          letter-spacing: 0.05em; /* Expanded tracking for labels */
+          border: var(--border-width) solid var(--swiss-black);
+          /* Hard edges */
+          border-radius: 0;
+        }
+
+        .settings-hint {
+          margin: 14px 0 0;
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--swiss-orange);
+          text-transform: uppercase;
+        }
+
+        /* Section Styling */
+        .section {
+          border-bottom: var(--border-width) solid var(--swiss-black);
+          padding-bottom: calc(var(--spacing-unit) * 2);
+          margin-bottom: calc(var(--spacing-unit) * 2);
+        }
+
+        .section:last-child {
+          border-bottom: none;
+        }
+
+        h2 {
+          margin: 0 0 var(--spacing-unit) 0;
+          font-size: 2rem;
+          text-transform: uppercase;
+          font-weight: 900;
+          letter-spacing: -0.02em;
+          color: var(--swiss-black);
+          /* Add a decorative Swiss orange underline or block */
+          border-left: 12px solid var(--swiss-orange);
+          padding-left: 16px;
+        }
+
+        /* Options List Layout */
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 0; /* Remove gap, use borders for separation */
+        }
+
         li {
           display: flex;
-          align-items: center;
+          flex-direction: column;
           gap: 8px;
-          padding: 5px 2px;
+          border-bottom: 1px solid #ccc;
+          padding: var(--spacing-unit) 0;
         }
+
+        li:last-child {
+          border-bottom: none;
+        }
+
+        .option-header {
+          display: flex;
+          align-items: flex-start;
+          gap: 16px;
+        }
+
+        /* Custom Swiss Checkbox - Bolder */
         input.checkbox {
-          inline-size: 17px;
-          block-size: 17px;
-          accent-color: var(--accent);
+          appearance: none;
+          width: 28px;
+          height: 28px;
+          border: var(--border-width) solid var(--swiss-black);
+          background: var(--swiss-white);
+          cursor: pointer;
+          flex-shrink: 0;
+          margin-top: 2px; /* Align with text */
+          position: relative;
+          transition: all 0.1s ease;
         }
-        label { font-size: 0.92rem; }
+
+        input.checkbox:checked {
+          background-color: var(--swiss-orange);
+          border-color: var(--swiss-orange);
+        }
+
+        input.checkbox:checked::after {
+          content: '';
+          position: absolute;
+          left: 8px;
+          top: 2px;
+          width: 8px;
+          height: 16px;
+          border: solid white;
+          border-width: 0 3px 3px 0;
+          transform: rotate(45deg);
+        }
+
+        input.checkbox:focus-visible {
+          outline: 3px solid var(--swiss-black); /* Black focus for high contrast */
+          outline-offset: 3px;
+        }
+
+        label {
+          font-size: 1.1rem;
+          font-weight: 700;
+          cursor: pointer;
+          user-select: none;
+          color: var(--swiss-black);
+          text-transform: uppercase; /* Uppercase labels for stronger structure */
+          letter-spacing: 0.02em;
+        }
+
+        /* Description Styling */
+        .description {
+          font-size: 0.95rem;
+          color: var(--swiss-text-muted);
+          line-height: 1.5;
+          margin-left: 48px; /* Indent to align past checkbox */
+          font-weight: 400;
+        }
+
       </style>
    </head>
    <body>
       <div class="shell">
          <section class="hero">
+            <!-- Image placeholder handled by extension usually, keeping original structure -->
             <img class="brand-icon" src="icons/icon128.png" alt="Brand icon">
             <h1>🌴 <span data-l10n-id="optionsTitle"></span></h1>
             <p class="subtitle" data-l10n-id="optionsSubtitle"></p>
             <p class="mode-indicator" id="mode_indicator">😌 Relax mode is on</p>
+            <p class="settings-hint">Scroll down to reach settings on top of page.</p>
          </section>
 
          <section class="section">
             <h2 data-l10n-id="optionsTitleVideo"></h2>
             <ul>
-               <li><input type="checkbox" id="block_60fps" class="checkbox"><label for="block_60fps" data-l10n-id="optionsBlock60fps"></label></li>
-               <li><input type="checkbox" id="block_h264" class="checkbox"><label for="block_h264" data-l10n-id="optionsBlockH264"></label></li>
-               <li><input type="checkbox" id="block_vp8" class="checkbox"><label for="block_vp8" data-l10n-id="optionsBlockVP8"></label></li>
-               <li><input type="checkbox" id="block_vp9" class="checkbox"><label for="block_vp9" data-l10n-id="optionsBlockVP9"></label></li>
-               <li><input type="checkbox" id="block_av1" class="checkbox"><label for="block_av1" data-l10n-id="optionsBlockAV1"></label></li>
+               <li>
+                  <div class="option-header">
+                     <input type="checkbox" id="block_60fps" class="checkbox">
+                     <label for="block_60fps" data-l10n-id="optionsBlock60fps"></label>
+                  </div>
+                  <p class="description">Prevents YouTube from selecting 60fps streams. Useful if you want lower CPU/GPU usage, cooler device temps, better battery life, or smoother playback on weaker hardware/network conditions.</p>
+               </li>
+               <li>
+                  <div class="option-header">
+                     <input type="checkbox" id="block_h264" class="checkbox">
+                     <label for="block_h264" data-l10n-id="optionsBlockH264"></label>
+                  </div>
+                  <p class="description">Prevents YouTube from selecting H.264/AVC video streams. Normally you’d leave this OFF on older hardware (since H.264 is widely hardware-accelerated). Turn it ON only if you specifically want to force newer codecs instead.</p>
+               </li>
+               <li>
+                  <div class="option-header">
+                     <input type="checkbox" id="block_vp8" class="checkbox">
+                     <label for="block_vp8" data-l10n-id="optionsBlockVP8"></label>
+                  </div>
+                  <p class="description">Prevents YouTube from selecting VP8 video streams. Keep OFF if you want broader compatibility fallback; turn ON if VP8 performs poorly on your setup.</p>
+               </li>
+               <li>
+                  <div class="option-header">
+                     <input type="checkbox" id="block_vp9" class="checkbox">
+                     <label for="block_vp9" data-l10n-id="optionsBlockVP9"></label>
+                  </div>
+                  <p class="description">Prevents YouTube from selecting VP9 video streams. Turn ON if VP9 causes stutter/high power draw on your device, or keep OFF if your hardware decodes VP9 efficiently.</p>
+               </li>
+               <li>
+                  <div class="option-header">
+                     <input type="checkbox" id="block_av1" class="checkbox">
+                     <label for="block_av1" data-l10n-id="optionsBlockAV1"></label>
+                  </div>
+                  <p class="description">Prevents YouTube from selecting AV1 video streams. AV1 is efficient for bandwidth but can be heavy on devices without AV1 hardware decoding. Turn ON if AV1 playback is unstable or too CPU-intensive.</p>
+               </li>
             </ul>
          </section>
 
          <section class="section">
             <h2 data-l10n-id="optionsTitleAudio"></h2>
             <ul>
-               <li><input type="checkbox" id="block_opus" class="checkbox"><label for="block_opus" data-l10n-id="optionsBlockOpus"></label></li>
-               <li><input type="checkbox" id="block_mp4a" class="checkbox"><label for="block_mp4a" data-l10n-id="optionsBlockMP4A"></label></li>
-               <li><input type="checkbox" id="disable_LN" class="checkbox"><label for="disable_LN" data-l10n-id="optionsDisableLN"></label></li>
+               <li>
+                  <div class="option-header">
+                     <input type="checkbox" id="block_opus" class="checkbox">
+                     <label for="block_opus" data-l10n-id="optionsBlockOpus"></label>
+                  </div>
+                  <p class="description">Prevents YouTube from selecting Opus audio streams. Mostly useful for troubleshooting compatibility or forcing alternate audio container/codec paths.</p>
+               </li>
+               <li>
+                  <div class="option-header">
+                     <input type="checkbox" id="block_mp4a" class="checkbox">
+                     <label for="block_mp4a" data-l10n-id="optionsBlockMP4A"></label>
+                  </div>
+                  <p class="description">Prevents YouTube from selecting AAC/MP4A audio streams. Use only if you want to avoid AAC specifically (e.g., testing/compatibility scenarios).</p>
+               </li>
+               <li>
+                  <div class="option-header">
+                     <input type="checkbox" id="disable_LN" class="checkbox">
+                     <label for="disable_LN" data-l10n-id="optionsDisableLN"></label>
+                  </div>
+                  <p class="description">Disables YouTube’s loudness adjustment/tweaking. With this enabled, audio is played closer to the creator’s original mastered loudness and dynamics (instead of YouTube leveling perceived volume between videos).</p>
+               </li>
             </ul>
          </section>
 
          <section class="section">
             <h2 data-l10n-id="optionsTitleFocus"></h2>
             <ul>
-               <li><input type="checkbox" id="block_distractions" class="checkbox"><label for="block_distractions" data-l10n-id="optionsBlockDistractions"></label></li>
+               <li>
+                  <div class="option-header">
+                     <input type="checkbox" id="block_distractions" class="checkbox">
+                     <label for="block_distractions" data-l10n-id="optionsBlockDistractions"></label>
+                  </div>
+                  <p class="description">Hides distracting recommendation panels/areas and replaces the home feed grid with a calmer prompt. Intended for users who want to reduce “infinite scroll” behavior and use YouTube more intentionally.</p>
+               </li>
             </ul>
          </section>
       </div>
