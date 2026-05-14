@@ -23,7 +23,8 @@
       "matches": [
         "*://*.youtube.com/*",
         "*://*.youtube-nocookie.com/*",
-        "*://*.youtu.be/*"
+        "*://*.youtu.be/*",
+        "*://m.youtube.com/*"
       ],
       "js": [
         "src/content_script.js"
@@ -37,7 +38,8 @@
       "matches": [
         "*://*.youtube.com/*",
         "*://*.youtube-nocookie.com/*",
-        "*://*.youtu.be/*"
+        "*://*.youtu.be/*",
+        "*://m.youtube.com/*"
       ],
       "resources": [
         "src/inject/inject_codec_check.js",

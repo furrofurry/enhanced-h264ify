@@ -65,7 +65,8 @@ function applyDistractionBlocking() {
       #toast,
       .related-items-container,
       ytm-rich-grid-renderer,
-      .ytd-watch-next-secondary-results-renderer.style-scope > .ytd-item-section-renderer.style-scope {
+      .ytd-watch-next-secondary-results-renderer.style-scope > .ytd-item-section-renderer.style-scope,
+      .ytd-two-column-browse-results-renderer.style-scope > .ytd-rich-grid-renderer.style-scope {
         display: none !important;
       }
       .enhanced-h264ify-relax-card {
@@ -95,14 +96,6 @@ function applyDistractionBlocking() {
       }
     `;
     document.documentElement.appendChild(style);
-  }
-
-  const grid = document.querySelector('.ytd-two-column-browse-results-renderer.style-scope > .ytd-rich-grid-renderer.style-scope');
-  if (grid && !document.querySelector('.enhanced-h264ify-relax-card')) {
-    const card = document.createElement('section');
-    card.className = 'enhanced-h264ify-relax-card';
-    card.innerHTML = '<span class="emoji">😌 🌴🌴</span><div class="title">What are we looking for today?</div><div class="desc">Its only you and the search now.</div>';
-    grid.replaceWith(card);
   }
 }
 
