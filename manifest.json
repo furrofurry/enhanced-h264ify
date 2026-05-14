@@ -56,7 +56,9 @@
     "gecko": {
       "id": "just-let-me-watch-my-youtube@furrofurry.github.io",
       "data_collection_permissions": {
-        "required": false
+        "required": [
+          "none"
+        ]
       }
     }
   }
