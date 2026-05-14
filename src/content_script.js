@@ -63,6 +63,8 @@ function applyDistractionBlocking() {
     style.textContent = `
       #secondary,
       #toast,
+      .related-items-container,
+      ytm-rich-grid-renderer,
       .ytd-watch-next-secondary-results-renderer.style-scope > .ytd-item-section-renderer.style-scope {
         display: none !important;
       }
