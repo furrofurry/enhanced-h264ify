@@ -25,9 +25,9 @@
 
 if (localStorage['enhanced-h264ify-block_60fps'] === undefined) localStorage['enhanced-h264ify-block_60fps'] = false;
 if (localStorage['enhanced-h264ify-block_h264'] === undefined) localStorage['enhanced-h264ify-block_h264'] = false;
-if (localStorage['enhanced-h264ify-block_vp8'] === undefined) localStorage['enhanced-h264ify-block_vp8'] = true;
-if (localStorage['enhanced-h264ify-block_vp9'] === undefined) localStorage['enhanced-h264ify-block_vp9'] = true;
-if (localStorage['enhanced-h264ify-block_av1'] === undefined) localStorage['enhanced-h264ify-block_av1'] = true;
+if (localStorage['enhanced-h264ify-block_vp8'] === undefined) localStorage['enhanced-h264ify-block_vp8'] = false;
+if (localStorage['enhanced-h264ify-block_vp9'] === undefined) localStorage['enhanced-h264ify-block_vp9'] = false;
+if (localStorage['enhanced-h264ify-block_av1'] === undefined) localStorage['enhanced-h264ify-block_av1'] = false;
 if (localStorage['enhanced-h264ify-block_opus'] === undefined) localStorage['enhanced-h264ify-block_opus'] = true;
 if (localStorage['enhanced-h264ify-block_mp4a'] === undefined) localStorage['enhanced-h264ify-block_mp4a'] = true;
 if (localStorage['enhanced-h264ify-disable_LN'] === undefined) localStorage['enhanced-h264ify-disable_LN'] = true;
@@ -36,9 +36,9 @@ if (localStorage['enhanced-h264ify-block_distractions'] === undefined) localStor
 chrome.storage.local.get({
   block_60fps: false,
   block_h264: false,
-  block_vp8: true,
-  block_vp9: true,
-  block_av1: true,
+  block_vp8: false,
+  block_vp9: false,
+  block_av1: false,
   block_opus: false,
   block_mp4a: false,
   disable_LN: true,
